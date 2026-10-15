@@ -425,7 +425,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .project-card:hover { border-color: var(--primary); box-shadow: var(--shadow), var(--glow); }
 .project-card--featured { grid-column: span 1; position: relative; overflow: hidden; }
 .project-card--featured::after {
-  content: "Featured"; position: absolute; top: 18px; right: -34px;
+  content: "Core"; position: absolute; top: 18px; right: -34px;
   transform: rotate(45deg); padding: 0.2rem 2.5rem;
   font-family: var(--font-mono); font-size: 0.65rem; color: #fff; background: var(--gradient);
 }
@@ -455,6 +455,22 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .project-logo--farsamo { background: #22a447; }
 .project-logo--farsamo .fa-gear { color: #fff; font-size: 2rem; }
 .project-logo--farsamo .fa-wrench { color: #0b3b22; font-size: 1rem; transform: rotate(-12deg); }
+/* Role labels + stronger styling for core projects */
+.project-role {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+  padding: 0.22rem 0.7rem; border-radius: 50px; margin-bottom: 0.6rem;
+}
+.project-role--core { color: #fff; background: var(--gradient); box-shadow: var(--glow); }
+.project-role--contrib { color: var(--primary-2); background: color-mix(in srgb, var(--primary-2) 12%, transparent); }
+.project-role--done { color: var(--text-muted); background: color-mix(in srgb, var(--text-muted) 12%, transparent); }
+.project-card--featured {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--primary) 9%, var(--surface-solid)), var(--surface-solid)) padding-box,
+    linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+  box-shadow: 0 20px 45px -25px rgba(20, 184, 166, 0.55);
+}
 .project-card h3 { font-family: var(--font-head); color: var(--heading); font-size: 1.35rem; }
 .project-card__tagline { font-size: 0.85rem; color: var(--primary); font-weight: 500; margin-bottom: 0.8rem; }
 .project-card > p:not(.project-card__tagline) { color: var(--text-muted); font-size: 0.93rem; flex: 1; margin-bottom: 1.3rem; }
