@@ -647,26 +647,42 @@
           </div>
 
           <form class="contact__form reveal" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="field">
-                <input type="text" id="name" name="name" placeholder=" " required />
-                <label for="name">Your Name</label>
-              </div>
-              <div class="field">
-                <input type="email" id="email" name="email" placeholder=" " required />
-                <label for="email">Your Email</label>
+            <div class="channel" role="radiogroup" aria-label="How should your message reach me?">
+              <span class="channel__label">Send your message via</span>
+              <div class="channel__options">
+                <button type="button" class="channel__btn active" data-channel="whatsapp" role="radio" aria-checked="true">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </button>
+                <button type="button" class="channel__btn" data-channel="email" role="radio" aria-checked="false">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </button>
+                <span class="channel__pill" aria-hidden="true"></span>
               </div>
             </div>
+
             <div class="field">
-              <input type="text" id="subject" name="subject" placeholder=" " required />
-              <label for="subject">Subject</label>
+              <input type="text" id="name" name="name" placeholder=" " required />
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-row email-only" hidden>
+              <div class="field">
+                <input type="email" id="email" name="email" placeholder=" " />
+                <label for="email">Your Email</label>
+              </div>
+              <div class="field">
+                <input type="text" id="subject" name="subject" placeholder=" " />
+                <label for="subject">Subject</label>
+              </div>
             </div>
             <div class="field">
               <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
               <label for="message">Your Message</label>
             </div>
-            <button type="submit" class="btn btn--primary btn--full">
-              <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+            <!-- spam trap: real visitors never see or fill this -->
+            <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
+
+            <button type="submit" class="btn btn--primary btn--full" id="sendBtn">
+              <i class="fa-brands fa-whatsapp"></i> <span>Send via WhatsApp</span>
             </button>
             <p class="form-status" id="formStatus" role="status"></p>
           </form>

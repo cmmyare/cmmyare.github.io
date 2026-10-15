@@ -267,36 +267,115 @@
     });
   }
 
-  /* ---------- Contact form (opens the visitor's email app) ---------- */
+  /* ---------- Contact form: WhatsApp or Email ---------- */
+  const WHATSAPP_NUMBER = "252619959788";
+  const CONTACT_EMAIL = "cmmyare24@gmail.com";
+  // Free key from https://web3forms.com (sent to CONTACT_EMAIL). Without it, email falls back to the visitor's mail app.
+  const WEB3FORMS_KEY = "";
+
   const form = $("#contactForm");
   const status = $("#formStatus");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  const sendBtn = $("#sendBtn");
+  const emailOnly = $(".email-only", form);
+  const channelBtns = $$(".channel__btn", form);
+  let channel = "whatsapp";
+
+  const setStatus = (type, text) => {
+    status.className = `form-status ${type}`;
+    status.textContent = text;
+  };
+
+  const setChannel = (next) => {
+    channel = next;
+    form.dataset.channel = next;
+    channelBtns.forEach((b) => {
+      const on = b.dataset.channel === next;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-checked", on);
+    });
+    emailOnly.hidden = next !== "email";
+    $("#email").required = $("#subject").required = next === "email";
+    sendBtn.innerHTML = next === "email"
+      ? '<i class="fa-solid fa-paper-plane"></i> <span>Send via Email</span>'
+      : '<i class="fa-brands fa-whatsapp"></i> <span>Send via WhatsApp</span>';
+    $$(".field", form).forEach((f) => f.classList.remove("error"));
+    setStatus("", "");
+  };
+  channelBtns.forEach((b) => b.addEventListener("click", () => setChannel(b.dataset.channel)));
+  setChannel("whatsapp");
+
+  const validate = () => {
     let valid = true;
     $$(".field", form).forEach((field) => {
       const input = $("input, textarea", field);
-      const ok = input.value.trim() !== "" && (input.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value));
+      if (!input.required) { field.classList.remove("error"); return; }
+      const ok = input.value.trim() !== "" &&
+        (input.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()));
       field.classList.toggle("error", !ok);
       if (!ok) valid = false;
     });
+    return valid;
+  };
 
-    if (!valid) {
-      status.className = "form-status err";
-      status.textContent = "Please fill in all fields with a valid email.";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (form.botcheck.checked) return;
+    if (!validate()) {
+      setStatus("err", channel === "email"
+        ? "Please fill in all fields with a valid email."
+        : "Please enter your name and message.");
       return;
     }
 
     const name = $("#name").value.trim();
+    const message = $("#message").value.trim();
+
+    if (channel === "whatsapp") {
+      const text = `Hello Abdullahi, I'm ${name}.\n\n${message}\n\n(Sent from your portfolio)`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      setStatus("ok", "Opening WhatsApp… just tap send to deliver your message.");
+      form.reset();
+      return;
+    }
+
     const email = $("#email").value.trim();
     const subject = $("#subject").value.trim();
-    const message = $("#message").value.trim();
-    const body = `${message}\n\n— ${name}\n${email}`;
-    window.location.href =
-      `mailto:cmmyare24@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    status.className = "form-status ok";
-    status.textContent = "Opening your email app… Thank you for reaching out!";
-    form.reset();
+    if (!WEB3FORMS_KEY) {
+      const body = `${message}\n\n— ${name}\n${email}`;
+      window.location.href =
+        `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus("ok", "Opening your email app… Thank you for reaching out!");
+      form.reset();
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending…</span>';
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Portfolio: ${subject}`,
+          from_name: name,
+          name,
+          email,
+          replyto: email,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message || "Send failed");
+      setStatus("ok", "Message sent! I'll get back to you soon.");
+      form.reset();
+    } catch (err) {
+      setStatus("err", `Couldn't send right now — please email ${CONTACT_EMAIL} directly or use WhatsApp.`);
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> <span>Send via Email</span>';
+    }
   });
 
   /* ---------- Footer year ---------- */
