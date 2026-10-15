@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdullahi Mohamed | Backend Software Engineer</title>
+  <meta name="description" content="Abdullahi Mohamed Mohamud — Backend Software Engineer at Tabaarak ICT. MERN stack, Node.js, Go and MongoDB Certified Associate Developer based in Mogadishu, Somalia." />
+  <meta name="author" content="Abdullahi Mohamed Mohamud" />
+  <meta property="og:title" content="Abdullahi Mohamed | Backend Software Engineer" />
+  <meta property="og:description" content="Building scalable APIs and high-performance backend systems with Node.js, Go and MongoDB." />
+  <meta property="og:image" content="assets/img/profile.jpg" />
+  <meta name="theme-color" content="#0b1120" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2314b8a6'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' text-anchor='middle' fill='white'>A</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <span class="preloader__logo">&lt;AM /&gt;</span>
+      <div class="preloader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== Scroll progress + cursor glow ===== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav__logo">&lt;<span>Abdullahi</span> /&gt;</a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#certifications" class="nav__link">Certificates</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="icon-btn nav__toggle" id="navToggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <canvas id="particles" class="hero__canvas"></canvas>
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__greet reveal" data-delay="0">
+            <span class="wave">👋</span> Hello, I'm
+          </p>
+          <h1 class="hero__name reveal" data-delay="100">
+            Abdullahi <span class="gradient-text">Mohamed</span>
+          </h1>
+          <h2 class="hero__role reveal" data-delay="200">
+            <span class="mono">&gt;</span> <span id="typed"></span><span class="caret">|</span>
+          </h2>
+          <p class="hero__text reveal" data-delay="300">
+            Backend Software Engineer at <strong>Tabaarak ICT Solutions</strong>. I design scalable APIs,
+            build high-performance backend systems and manage production-grade databases with
+            <strong>Node.js</strong>, <strong>Go</strong> and <strong>MongoDB</strong>.
+          </p>
+
+          <div class="hero__cta reveal" data-delay="400">
+            <a href="#projects" class="btn btn--primary">
+              <span>View My Work</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="assets/docs/Abdullahi-Mohamed-CV.pdf" class="btn btn--ghost" download>
+              <i class="fa-solid fa-download"></i> <span>Download CV</span>
+            </a>
+          </div>
+
+          <div class="hero__social reveal" data-delay="500">
+            <a href="https://github.com/cmmyare" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/abdullahi-mohamed-dere-bb4bba291" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:cmmyare24@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/252619959788" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" data-delay="300">
+          <div class="avatar">
+            <div class="avatar__ring"></div>
+            <div class="avatar__ring avatar__ring--2"></div>
+            <img src="assets/img/profile.jpg" alt="Abdullahi Mohamed Mohamud" class="avatar__img" />
+            <div class="float-card float-card--1">
+              <i class="fa-brands fa-node-js"></i>
+              <div><strong>Node.js</strong><small>Backend</small></div>
+            </div>
+            <div class="float-card float-card--2">
+              <i class="fa-solid fa-leaf"></i>
+              <div><strong>MongoDB</strong><small>Certified</small></div>
+            </div>
+            <div class="float-card float-card--3">
+              <span class="go-badge">Go</span>
+              <div><strong>Golang</strong><small>Services</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-down" aria-label="Scroll down">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">01. About Me</span>
+          <h2 class="section__title">Who I <span class="gradient-text">Am</span></h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              I'm a <strong>Computer Science graduate</strong> from Somali National University and a
+              <strong>Backend Software Engineer</strong> at Tabaarak ICT Solutions — one of the leading ICT
+              companies in East Africa.
+            </p>
+            <p>
+              I specialize in the <strong>MERN stack</strong> with strong expertise in <strong>Node.js</strong> and
+              <strong>Go</strong>. As a <strong>Certified MongoDB Associate Developer</strong>, I have proven experience
+              designing scalable APIs, building high-performance backend systems and managing production-grade databases.
+            </p>
+            <p>
+              I'm passionate about solving real-world problems and developing technology solutions with global impact —
+              from service marketplaces to large-scale multi-service e-commerce platforms.
+            </p>
+
+            <ul class="about__info">
+              <li><i class="fa-solid fa-location-dot"></i> Mogadishu, Somalia</li>
+              <li><i class="fa-solid fa-briefcase"></i> Tabaarak ICT Solutions</li>
+              <li><i class="fa-solid fa-graduation-cap"></i> B.Sc. Computer Science</li>
+              <li><i class="fa-solid fa-language"></i> Somali · English · Arabic</li>
+            </ul>
+
+            <a href="#contact" class="btn btn--primary"><span>Let's Talk</span> <i class="fa-solid fa-paper-plane"></i></a>
+          </div>
+
+          <div class="about__stats">
+            <div class="stat-card reveal" data-delay="0">
+              <i class="fa-solid fa-diagram-project"></i>
+              <h3><span class="counter" data-target="8">0</span>+</h3>
+              <p>Projects Built</p>
+            </div>
+            <div class="stat-card reveal" data-delay="100">
+              <i class="fa-solid fa-briefcase"></i>
+              <h3><span class="counter" data-target="2">0</span>+</h3>
+              <p>Years in Industry</p>
+            </div>
+            <div class="stat-card reveal" data-delay="200">
+              <i class="fa-solid fa-certificate"></i>
+              <h3><span class="counter" data-target="10">0</span>+</h3>
+              <p>Certificates &amp; Courses</p>
+            </div>
+            <div class="stat-card reveal" data-delay="300">
+              <i class="fa-solid fa-code"></i>
+              <h3><span class="counter" data-target="5">0</span>+</h3>
+              <p>Years Coding</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS & COURSES ===== -->
+    <section class="section section--alt" id="certifications">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">02. Certifications</span>
+          <h2 class="section__title">Certificates &amp; <span class="gradient-text">Courses</span></h2>
+        </div>
+
+        <div class="cert__grid">
+          <div class="badge-card reveal" data-delay="0">
+            <div class="badge-card__img">
+              <img src="assets/img/certs/mongodb-associate-developer.png" alt="MongoDB Certified Associate Developer badge" loading="lazy" />
+            </div>
+            <span class="cert-card__issuer">MongoDB · Credly · Jan 2026</span>
+            <h3>MongoDB Associate Developer (Node.js)</h3>
+            <p>Professional certification validating skills in building applications with MongoDB and Node.js — data modeling, CRUD, indexing and aggregation.</p>
+            <div class="cert-card__links">
+              <a href="https://www.credly.com/badges/764c0094-b851-4874-89a8-01150bc27b19" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verify on Credly</a>
+            </div>
+          </div>
+
+          <div class="badge-card reveal" data-delay="100">
+            <div class="badge-card__img">
+              <svg viewBox="0 0 200 180" role="img" aria-label="Google AI Professional Certificate badge">
+                <circle cx="100" cy="82" r="78" fill="#ffffff"/>
+                <g fill="none" stroke-width="9" transform="rotate(-90 100 82)">
+                  <circle cx="100" cy="82" r="70" stroke="#4285F4" stroke-dasharray="110 330" stroke-dashoffset="0"/>
+                  <circle cx="100" cy="82" r="70" stroke="#EA4335" stroke-dasharray="110 330" stroke-dashoffset="-110"/>
+                  <circle cx="100" cy="82" r="70" stroke="#FBBC05" stroke-dasharray="110 330" stroke-dashoffset="-220"/>
+                  <circle cx="100" cy="82" r="70" stroke="#34A853" stroke-dasharray="110 330" stroke-dashoffset="-330"/>
+                </g>
+                <text x="100" y="68" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="600" fill="#3c4043">Google</text>
+                <text x="100" y="108" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" fill="#4285F4">AI</text>
+                <rect x="8" y="122" width="184" height="38" rx="9" fill="#e8f0fe" stroke="#1a3d7c" stroke-width="2.5"/>
+                <text x="100" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1a3d7c">Professional Certificate</text>
+              </svg>
+            </div>
+            <span class="cert-card__issuer">Google · Coursera · Aug 2026</span>
+            <h3>Google AI Professional Certificate</h3>
+            <p>8 courses: AI Fundamentals, Brainstorming &amp; Planning, Research &amp; Insights, Writing &amp; Communicating, Content Creation, Data Analysis, App Building and App Deployment.</p>
+            <div class="cert-card__links">
+              <a href="https://coursera.org/verify/professional-cert/O8U5YLMN3QRZ" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verify on Coursera</a>
+              <a href="assets/docs/Google-AI-Professional-Certificate.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> View</a>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-delay="200">
+            <div class="cert-card__logo"><i class="fa-solid fa-laptop-code"></i></div>
+            <div>
+              <span class="cert-card__issuer">SYD Academy · Nov 2024</span>
+              <h3>Software Engineering</h3>
+              <p>Java, MySQL, HTML &amp; CSS, PHP and JavaScript — built a complete desktop application project.</p>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-delay="300">
+            <div class="cert-card__logo"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <div>
+              <span class="cert-card__issuer">Dugsiiye Academy · Jul 2022</span>
+              <h3>Mobile App Development (Dart)</h3>
+              <p>Online course in mobile development with Dart.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">03. Skills</span>
+          <h2 class="section__title">My Tech <span class="gradient-text">Stack</span></h2>
+          <p class="section__sub">Tools and technologies I use to build reliable, scalable software.</p>
+        </div>
+
+        <div class="skills__grid">
+          <div class="skill-card reveal" data-delay="0">
+            <div class="skill-card__icon"><i class="fa-solid fa-server"></i></div>
+            <h3>Backend</h3>
+            <div class="chips">
+              <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
+              <span class="chip"><i class="fa-brands fa-golang"></i> Go</span>
+              <span class="chip">Express.js</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="chip"><i class="fa-brands fa-php"></i> PHP</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" data-delay="100">
+            <div class="skill-card__icon"><i class="fa-solid fa-database"></i></div>
+            <h3>Databases</h3>
+            <div class="chips">
+              <span class="chip"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+              <span class="chip">Mongoose</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Data Modeling</span>
+              <span class="chip">Aggregation</span>
+              <span class="chip">Indexing</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" data-delay="200">
+            <div class="skill-card__icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Frontend</h3>
+            <div class="chips">
+              <span class="chip"><i class="fa-brands fa-react"></i> React</span>
+              <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="chip"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" data-delay="300">
+            <div class="skill-card__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <h3>Mobile</h3>
+            <div class="chips">
+              <span class="chip">Dart</span>
+
+              <span class="chip">Mobile App Dev</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" data-delay="400">
+            <div class="skill-card__icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Tools &amp; Workflow</h3>
+            <div class="chips">
+              <span class="chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="chip"><i class="fa-brands fa-github"></i> GitHub</span>
+              <span class="chip"><i class="fa-brands fa-gitlab"></i> GitLab</span>
+              <span class="chip">Postman</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Agile Teams</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" data-delay="500">
+            <div class="skill-card__icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>AI &amp; Productivity</h3>
+            <div class="chips">
+              <span class="chip">Prompt Engineering</span>
+              <span class="chip">AI App Building</span>
+              <span class="chip">AI Deployment</span>
+              <span class="chip">AI Data Analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- infinite marquee -->
+        <div class="marquee reveal">
+          <div class="marquee__track">
+            <span>Node.js</span><span>Go</span><span>MongoDB</span><span>Express</span><span>React</span>
+            <span>REST APIs</span><span>MySQL</span><span>Java</span><span>JavaScript</span><span>Dart</span>
+            <span>Git</span><span>PHP</span>
+            <span>Node.js</span><span>Go</span><span>MongoDB</span><span>Express</span><span>React</span>
+            <span>REST APIs</span><span>MySQL</span><span>Java</span><span>JavaScript</span><span>Dart</span>
+            <span>Git</span><span>PHP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">04. Experience</span>
+          <h2 class="section__title">Where I've <span class="gradient-text">Worked</span></h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"><i class="fa-solid fa-code"></i></div>
+            <div class="timeline__card">
+              <span class="timeline__date">Jan 2025 — Present</span>
+              <h3>Software Engineer <span class="badge badge--live">Current</span></h3>
+              <h4><i class="fa-solid fa-building"></i> Tabaarak ICT Solutions · Mogadishu</h4>
+              <ul>
+                <li>Collaborate with cross-functional teams to design, develop and maintain scalable web applications.</li>
+                <li>Design and implement RESTful APIs that power dynamic front-end features and improve user experience.</li>
+                <li>Contribute to backend development, system logic and feature integration for large-scale platforms like Rikaab and Farsamo.</li>
+              </ul>
+              <div class="chips chips--sm">
+                <span class="chip">Node.js</span><span class="chip">Go</span><span class="chip">MongoDB</span><span class="chip">REST</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="timeline__card">
+              <span class="timeline__date">Oct 2024</span>
+              <h3>Workshop Participant</h3>
+              <h4><i class="fa-solid fa-building"></i> Tabaarak ICT Solutions · Mogadishu</h4>
+              <ul>
+                <li>Attended an intensive coding workshop focused on the MERN stack.</li>
+                <li>Built a Crime Management System as part of a team during the workshop.</li>
+              </ul>
+              <div class="chips chips--sm">
+                <span class="chip">MongoDB</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="timeline__card">
+              <span class="timeline__date">Jun 2019 — Jun 2020</span>
+              <h3>Teacher</h3>
+              <h4><i class="fa-solid fa-school"></i> Aayatiin Primary &amp; Secondary School · Galdogob</h4>
+              <ul>
+                <li>Taught students in a primary and secondary school setting, building communication and mentoring skills.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">05. Projects</span>
+          <h2 class="section__title">Featured <span class="gradient-text">Work</span></h2>
+          <p class="section__sub">A selection of products and systems I've built or contributed to.</p>
+        </div>
+
+        <div class="filters reveal">
+          <button class="filter active" data-filter="professional"><i class="fa-solid fa-briefcase"></i> Professional</button>
+          <button class="filter" data-filter="academic"><i class="fa-solid fa-graduation-cap"></i> Academic</button>
+        </div>
+
+        <div class="projects__grid">
+          <article class="project-card project-card--featured reveal" data-category="professional">
+            <div class="project-card__top">
+              <div class="project-logo project-logo--rikaab" role="img" aria-label="Rikaab logo">
+                <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M31 52 V45 A20 20 0 0 1 51 25" stroke="#0f1f33" stroke-width="13"/>
+                  <path d="M31 63 V75" stroke="#fff" stroke-width="13"/>
+                  <path d="M67 36 Q67 50 52 57 L69 75" stroke="#fff" stroke-width="13"/>
+                </svg>
+              </div>
+              <span class="badge badge--live">Sep 2025 — Present</span>
+            </div>
+            <h3>Rikaab</h3>
+            <p class="project-card__tagline">Large-scale multi-service e-commerce platform</p>
+            <p>
+              A super-app integrating <strong>marketplace, restaurants, food delivery, online booking and taxi booking</strong>
+              services. Contributed to backend development, system logic and feature integration to support scalable and
+              efficient operations.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">Node.js</span><span class="chip">Go</span><span class="chip">MongoDB</span><span class="chip">Scalable Systems</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="professional" data-delay="100">
+            <div class="project-card__top">
+              <div class="project-logo project-logo--dhaweeye" role="img" aria-label="Dhaweeye logo">
+                <svg viewBox="0 0 100 100" fill="none">
+                  <path d="M50 86 L33 67 A24 24 0 1 1 67 67 Z" stroke="#fff" stroke-width="7" stroke-linejoin="round"/>
+                </svg>
+                <i class="fa-solid fa-thumbs-up"></i>
+              </div>
+              <span class="badge badge--live">Tabaarak ICT</span>
+            </div>
+            <h3>Dhaweeye</h3>
+            <p class="project-card__tagline">Super-app for rides, delivery &amp; more</p>
+            <p>
+              A multi-service super-app offering <strong>taxi booking, deliveries, data transfer</strong> and more,
+              available in-app or by dialing <strong>*3000#</strong>. Contributed to backend development, API design
+              and feature integration.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">Backend</span><span class="chip">REST API</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="professional">
+            <div class="project-card__top">
+              <div class="project-logo project-logo--faras" role="img" aria-label="Faras logo">
+                <svg viewBox="0 0 100 100" fill="none">
+                  <circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="6"/>
+                </svg>
+                <i class="fa-solid fa-horse-head"></i>
+              </div>
+              <span class="badge badge--live">Tabaarak ICT</span>
+            </div>
+            <h3>Faras</h3>
+            <p class="project-card__tagline">Ride-hailing platform</p>
+            <p>
+              A ride-hailing service with a <strong>rider app</strong> for requesting trips and a
+              <strong>Faras Captain</strong> app for drivers. Contributed to backend development, API design and
+              feature integration.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">Backend</span><span class="chip">REST API</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="professional" data-delay="100">
+            <div class="project-card__top">
+              <div class="project-logo project-logo--farsamo" role="img" aria-label="Farsamo logo">
+                <i class="fa-solid fa-gear"></i>
+                <i class="fa-solid fa-wrench"></i>
+              </div>
+              <span class="badge badge--live">Aug 2025 — Present</span>
+            </div>
+            <h3>Farsamo</h3>
+            <p class="project-card__tagline">Service marketplace for skilled professionals</p>
+            <p>
+              A platform linking customers with skilled workers such as air-conditioning technicians and other service
+              providers — enabling easy service requests, management and communication.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">MERN</span><span class="chip">REST API</span><span class="chip">MongoDB</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal hidden" data-category="academic">
+            <div class="project-card__top">
+              <div class="project-card__icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <span class="badge">Oct — Nov 2024</span>
+            </div>
+            <h3>Online Booking System</h3>
+            <p class="project-card__tagline">Mobile App</p>
+            <p>An app that brings all agencies together in one place, making it simple to discover and book services.</p>
+            <div class="chips chips--sm">
+              <span class="chip">Mobile</span><span class="chip">API</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal hidden" data-category="academic" data-delay="100">
+            <div class="project-card__top">
+              <div class="project-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <span class="badge">Oct 2024</span>
+            </div>
+            <h3>Crime Management System</h3>
+            <p class="project-card__tagline">Team project · MERN workshop</p>
+            <p>A system used by the public and security agencies to report, track and manage crime cases.</p>
+            <div class="chips chips--sm">
+              <span class="chip">MERN</span><span class="chip">Teamwork</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal hidden" data-category="academic" data-delay="200">
+            <div class="project-card__top">
+              <div class="project-card__icon"><i class="fa-solid fa-droplet"></i></div>
+              <span class="badge">Jan — Mar 2024</span>
+            </div>
+            <h3>Water Supply Management</h3>
+            <p class="project-card__tagline">Desktop system for water supply companies</p>
+            <p>Manages customers, billing and supply operations for water supply companies.</p>
+            <div class="chips chips--sm">
+              <span class="chip">Java</span><span class="chip">MySQL</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal hidden" data-category="academic" data-delay="300">
+            <div class="project-card__top">
+              <div class="project-card__icon"><i class="fa-solid fa-book-open"></i></div>
+              <span class="badge">Nov — Dec 2023</span>
+            </div>
+            <h3>Library Management System</h3>
+            <p class="project-card__tagline">University group project</p>
+            <p>Handles books, members, borrowing and returns for a university library.</p>
+            <div class="chips chips--sm">
+              <span class="chip">Database</span><span class="chip">Teamwork</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="center reveal">
+          <a href="https://github.com/cmmyare" target="_blank" rel="noopener" class="btn btn--ghost">
+            <i class="fa-brands fa-github"></i> <span>More on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="section section--alt" id="education">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">06. Education</span>
+          <h2 class="section__title">Academic <span class="gradient-text">Journey</span></h2>
+        </div>
+
+        <div class="edu__grid">
+          <div class="edu-card reveal" data-delay="0">
+            <div class="edu-card__icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span class="timeline__date">Aug 2021 — Feb 2026</span>
+            <h3>B.Sc. Computer Science</h3>
+            <h4>Somali National University · Mogadishu</h4>
+            <p>Software engineering focus — backend development and real-world problem solving.</p>
+          </div>
+
+          <div class="edu-card reveal" data-delay="100">
+            <div class="edu-card__icon"><i class="fa-solid fa-school"></i></div>
+            <span class="timeline__date">Jun 2014 — Jun 2021</span>
+            <h3>Secondary School</h3>
+            <h4>Galdogob Primary &amp; Secondary School</h4>
+            <p>Strong foundation in mathematics, science and problem-solving.</p>
+          </div>
+
+          <div class="edu-card reveal" data-delay="200">
+            <div class="edu-card__icon"><i class="fa-solid fa-book-quran"></i></div>
+            <span class="timeline__date">Jun 2015 — Jun 2017</span>
+            <h3>Islamic Sharia Certificate</h3>
+            <h4><span dir="rtl" lang="ar">معهد الإمام البخاري للعلوم</span> · Galdogob</h4>
+            <p>Certificate under the jurisdiction of the Islamic law of Somalia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">07. Contact</span>
+          <h2 class="section__title">Let's Build <span class="gradient-text">Something</span></h2>
+          <p class="section__sub">Have a project, role or idea in mind? My inbox is always open.</p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <a href="mailto:cmmyare24@gmail.com" class="contact-item reveal" data-delay="0">
+              <i class="fa-solid fa-envelope"></i>
+              <div><span>Email</span><strong>cmmyare24@gmail.com</strong></div>
+            </a>
+            <a href="tel:+252619959788" class="contact-item reveal" data-delay="100">
+              <i class="fa-solid fa-phone"></i>
+              <div><span>Phone</span><strong>+252 61 995 9788</strong></div>
+            </a>
+            <a href="https://wa.me/252619959788" target="_blank" rel="noopener" class="contact-item reveal" data-delay="200">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div><span>WhatsApp</span><strong>Chat with me</strong></div>
+            </a>
+            <div class="contact-item reveal" data-delay="300">
+              <i class="fa-solid fa-location-dot"></i>
+              <div><span>Location</span><strong>Bakaaro, Hawlwadaag, Mogadishu</strong></div>
+            </div>
+          </div>
+
+          <form class="contact__form reveal" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <input type="text" id="name" name="name" placeholder=" " required />
+                <label for="name">Your Name</label>
+              </div>
+              <div class="field">
+                <input type="email" id="email" name="email" placeholder=" " required />
+                <label for="email">Your Email</label>
+              </div>
+            </div>
+            <div class="field">
+              <input type="text" id="subject" name="subject" placeholder=" " required />
+              <label for="subject">Subject</label>
+            </div>
+            <div class="field">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="nav__logo">&lt;<span>Abdullahi</span> /&gt;</a>
+      <p>Designed &amp; built by Abdullahi Mohamed Mohamud · © <span id="year"></span></p>
+      <div class="footer__social">
+        <a href="https://github.com/cmmyare" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/abdullahi-mohamed-dere-bb4bba291" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:cmmyare24@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
